@@ -13,16 +13,10 @@ export const load: LayoutLoad = async ({ params }) => {
 	}
 
 	const text = await res.text();
-	const body = text
-		.split('\n')
-		.map((line) => {
-			return line.replace(/^(.*)$/, '<span>$1</span>');
-		})
-		.join('\n');
-
 	return {
-		props: {
-			body
+		paste: {
+			text,
+			id
 		}
 	};
 };

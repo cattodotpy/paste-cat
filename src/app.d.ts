@@ -4,8 +4,10 @@ declare global {
 	namespace App {
 		interface Platform {
 			env: {
-				R2_BUCKET: R2Bucket;
-				KV: KVNamespace;
+				PASTES: KVNamespace;
+			};
+			context: {
+				waitUntil(promise: Promise<any>): void;
 			};
 			cf: CfProperties;
 			ctx: ExecutionContext;

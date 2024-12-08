@@ -1,4 +1,7 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
+	import { redirect } from '@sveltejs/kit';
+
 	export let error = '';
 	export let isSubmitting = false;
 
@@ -20,10 +23,17 @@
 
 			if (response.ok) {
 				form.reset();
+				const {
+					id
+				}: {
+					id: string;
+				} = await response.json();
+				return goto(`/pastes/${id}`);
 			} else {
 				error = `An error occurred: ${response.statusText}: ${await response.text()}`;
 			}
 		} catch (e) {
+			console.error(e);
 			if (e instanceof Error) {
 				error = `An error occurred: ${e.message}`;
 			} else {
