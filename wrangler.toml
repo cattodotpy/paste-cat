@@ -43,6 +43,9 @@ pages_build_output_dir = ".svelte-kit/cloudflare"
 # [[kv_namespaces]]
 # binding = "MY_KV_NAMESPACE"
 # id = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+[[kv_namespaces]]
+binding = "pastes_expiration"
+id = "44f275acf4c34dae8e6528900888a714"
 
 # Bind a Queue producer. Use this binding to schedule an arbitrary task that may be processed later by a Queue consumer.
 # Docs: https://developers.cloudflare.com/pages/functions/bindings/#queue-producers
@@ -55,6 +58,10 @@ pages_build_output_dir = ".svelte-kit/cloudflare"
 # [[r2_buckets]]
 # binding = "MY_BUCKET"
 # bucket_name = "my-bucket"
+
+[[r2_buckets]]
+bucket_name = "pastes"
+binding = "pastes"
 
 # Bind another Worker service. Use this binding to call another Worker without network overhead.
 # Docs: https://developers.cloudflare.com/pages/functions/bindings/#service-bindings
